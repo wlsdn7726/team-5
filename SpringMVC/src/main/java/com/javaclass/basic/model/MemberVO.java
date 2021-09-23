@@ -21,13 +21,15 @@ public class MemberVO {
 	
 	private String id;
 	private String name;
+	private String age;
 	
+//	
 	private boolean state;
 
 	public String getId() {
 		return id;
 	}
-
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -40,6 +42,13 @@ public class MemberVO {
 		this.name = name;
 	}
 
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
 
 	public boolean isState() {
 		return state;
@@ -48,7 +57,6 @@ public class MemberVO {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-	
 	
 	
 }
