@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!--  스프링에서는 클래스 사용할 때 "빈"을 사용합니다. -->
+	<!--  "빈" : 자바 클래스를 객체화 하는 행위  -->
+	<!-- root-context.xml : 설정을 하면 모든 기능에서 빈을 공유할 수 있도록 정의 -->
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- root-context 정의한 것들을 공유할 수 있도록 
+		DAO, DataSource, Service
+	-->
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- 1. Spring 컨테이너 : 빈을 생성하고, 프로그램에서 사용할 변수 혹은 컴포턴트 등 설정
+							가장 먼저 실행 해야 하는 파문장
+			그 전에는 MainApp 만들어서 컨테이너를 생성했습니다.
+			MainApp 대신에 컨테이너를 생성하는 구문
+			
+		1. Spring container 생상
+		2. 클라이언트(사용자)에 요청에 의해서 처음으로 받는 클래스 준비
+				(Spring에서 준비해줌 : DispatcherServlet)
+		3. 그 클래스가 Controller랑 요청이랑 연결
+			-->
+	<!-- Processes application requests -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+<!--  한글처리 : 인코딩을 UTF-8형태로 필터링하겠다.  -->
+   <filter>
+      <filter-name>encodingFilter</filter-name>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+      <init-param>
+         <param-name>encoding</param-name>
+         <param-value>UTF-8</param-value>
+      </init-param>
+      <init-param>
+         <param-name>forceEncoding</param-name>
+         <param-value>true</param-value>
+      </init-param>
+   </filter>
+   <filter-mapping>
+      <filter-name>encodingFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+
+</web-app>
