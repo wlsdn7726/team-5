@@ -2,21 +2,47 @@
 <mapper namespace="ReviewDAO">
 
 	<select id="showReviewList" resultType="review">
+		SELECT *
+		FROM review
+		ORDER BY seq DESC
 	</select>
 	
 	<select id="showReview" parameterType="review" resultType="review">
+		SELECT *
+		FROM review
+		WHERE seq = #{seq}
 	</select>
    
 	<insert id="addReview" parameterType="review">
+		INSERT INTO review
+		( seq, title, writer, cake, rating, content, wdate
+			<if test="imgfile != null">
+			, imgfile
+			</if>
+		)  VALUES ( 
+		uploadtemp_bid_seq.nextval, #{title}, #{writer}, #{cake}, #{rating}, #{content}, sysdate
+			<if test="b_fname != null">
+			, #{imgfile}
+			</if>
+		)
 	</insert>
    
 	<delete id="delreview" parameterType="review">
+		delete 
+		FROM review
+		WHERE seq = #{seq}
 	</delete>
 	
 	<insert id="addComment" parameterType="comment">
+		INSERT INTO reviewcomment(
+		seq, content, wdate)
+		VALUES(#{seq}, #{content}, #{wdate})
 	</insert>
 	
 	<select id="showComment" resultType="comment">
+		SELECT *
+		FROM reviewcomment
+		ORDER BY seq DESC
 	</select>
    
 </mapper>
