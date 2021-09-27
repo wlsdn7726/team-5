@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="domain.MemberVO" alias="member"/>
+		<typeAlias type="domain.OrderVO" alias="order"/>
+		<typeAlias type="domain.ReviewVO" alias="review"/>
+		<typeAlias type="domain.ReviewCommentVO" alias="comment"/>
+		<typeAlias type="domain.StatVO" alias="stat"/>
+		<typeAlias type="domain.CakeVO" alias="cake"/>
+		<typeAlias type="domain.OtherVO" alias="other"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/order-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/stat-mapping.xml"/>
+		<mapper resource="mappings/cake-mapping.xml"/>
+	</mappers>
+	
+</configuration>

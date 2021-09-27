@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="OrderDAO">
+
+	<select id="showOrderList" resultType="order">
+	
+		<if test="admin == true">
+   		</if>
+	</select>
+	
+	<select id="showOrder" parameterType="order" resultType="order">
+	</select>
+   
+	<insert id="addOrder" parameterType="order">
+	</insert>
+   
+	<delete id="delOrder" parameterType="order">
+	</delete>
+	
+	<insert id="updateOrder" parameterType="order">
+	</insert>
+   
+</mapper>

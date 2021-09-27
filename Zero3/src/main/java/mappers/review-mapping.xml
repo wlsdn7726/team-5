@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="ReviewDAO">
+
+	<select id="showReviewList" resultType="review">
+	</select>
+	
+	<select id="showReview" parameterType="review" resultType="review">
+	</select>
+   
+	<insert id="addReview" parameterType="review">
+	</insert>
+   
+	<delete id="delreview" parameterType="review">
+	</delete>
+	
+	<insert id="addComment" parameterType="comment">
+	</insert>
+	
+	<select id="showComment" resultType="comment">
+	</select>
+   
+</mapper>

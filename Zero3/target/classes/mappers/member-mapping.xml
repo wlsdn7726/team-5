@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="MemberDAO">
+
+	<select id="login" parameterType="member" resultType="member">
+	</select>
+   
+	<insert id="userInsert" parameterType="member">
+	</insert>
+   
+	<delete id="userDelete" parameterType="member">
+	</delete>
+   
+</mapper>

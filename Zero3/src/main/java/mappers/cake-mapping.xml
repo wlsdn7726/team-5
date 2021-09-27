@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="CakeDAO">
+
+	<select id="cakeInfoList" resultType="cake">
+	</select>
+	
+	<select id="cakeInfo" parameterType="cake" resultType="cake">
+	</select>
+	
+	<insert id="addCake" parameterType="cake">
+	</insert>
+	
+	<delete id="delCake" parameterType="cake">
+	</delete>
+	
+	<update id="updateCake" parameterType="cake">
+	</update>
+	
+	
+	<select id="otherInfoList" resultType="other">
+	</select>
+   
+	<select id="otherInfo" parameterType="other" resultType="other">
+	</select>
+	
+	<insert id="addOther" parameterType="other">
+	</insert>
+	
+	<delete id="delOther" parameterType="other">
+	</delete>
+	
+	<update id="updateOther" parameterType="other">
+	</update>
+   
+</mapper>

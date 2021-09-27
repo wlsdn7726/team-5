@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="StatDAO">
+
+	<select id="cakeStat" resultType="stat">
+	</select>
+	
+	<select id="ganderStat" resultType="stat">
+	</select>
+	
+	<select id="ageStat" resultType="stat">
+	</select>
+   
+</mapper>
