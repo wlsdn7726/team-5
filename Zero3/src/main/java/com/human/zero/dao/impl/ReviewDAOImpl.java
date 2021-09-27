@@ -1,39 +1,42 @@
 package com.human.zero.dao.impl;
 
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.human.zero.dao.ReviewDAO;
 import com.human.zero.domain.ReviewCommentVO;
 import com.human.zero.domain.ReviewVO;
 
 public class ReviewDAOImpl implements ReviewDAO {
-
+	
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
 	@Override
-	public ReviewVO showReviewList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReviewVO> showReviewList() {
+		return mybatis.selectList("ReviewDAO.showReviewList");
 	}
 
 	@Override
 	public ReviewVO showReview(ReviewVO rvo) {
-		// TODO Auto-generated method stub
-		return null;
+		return mybatis.selectOne("ReviewDAO.showReview", rvo);
 	}
 
 	@Override
 	public void addReview(ReviewVO rvo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.insert("ReviewDAO.addReview", rvo);
 	}
 
 	@Override
 	public void addReviewComment(ReviewCommentVO rvo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.insert("ReviewDAO.addReviewComment", rvo);
 	}
 
 	@Override
 	public void deleteReview(ReviewVO rvo) {
-		// TODO Auto-generated method stub
-		
+		mybatis.delete("ReviewDAO.deleteReview", rvo);
 	}
 
 }
